@@ -2,14 +2,14 @@
 # Определите минимальное число монеток, которые нужно перевернуть, чтобы все монетки были повернуты вверх одной и той же стороной. 
 # Выведите минимальное количество монет, которые нужно перевернуть.
 
-# n = int(input("Enter The Number Of Coins>"))
-# r = int(input("Enter the number of coins of the upward eagle>")) 
-# k = n-r
-# if k > r:
-#     print(r)
-# else:
-#     k < r
-#     print(k)
+n = int(input("Enter The Number Of Coins>"))
+r = int(input("Enter the number of coins of the upward eagle>")) 
+k = n-r
+if k > r:
+    print(r)
+else:
+    k < r
+    print(k)
 
 # Задача 2: Петя и Катя – брат и сестра. Петя – студент, а Катя –
 # школьница. Петя помогает Кате по математике. Он задумывает два
@@ -17,10 +17,10 @@
 # этого Петя делает две подсказки. Он называет сумму этих чисел S и их
 # произведение P. Помогите Кате отгадать задуманные Петей числа.
 
-# from math import sqrt
-# s, p = map( int, input('s, p = ').split() )
-# z = sqrt( (s/2)**2 - p )
-# print( int( s/2 - z ), int( s/2 + z ) )
+from math import sqrt
+s, p = map(int, input('s, p = ').split())
+z = sqrt((s/2)**2 - p)
+print( int( s/2 - z ), int( s/2 + z ))
 
 # Задача 3:Требуется вывести все целые степени двойки (т.е. числа
 # вида 2k), не превосходящие числа N.
