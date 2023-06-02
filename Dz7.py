@@ -5,23 +5,23 @@
 # Фразы отделяются друг от друга пробелами. Стихотворение  Винни-Пух вбивает в программу с клавиатуры. 
 # В ответе напишите “Парам пам-пам”, если с ритмом все в порядке и “Пам парам”, если с ритмом все не в порядке.
 
-# def rhythm(str):
-#     str = str.split()
-#     list = []
-#     for word in str:
-#         result = 0
-#         for i in word:
-#             if i in 'аеёиоуыэюя':
-#                 result += 1
-#         list.append(result)
-#     return len(list) == list.count(list[0])
+def rhythm(str):
+    str = str.split()
+    list = []
+    for word in str:
+        result = 0
+        for i in word:
+            if i in 'аеёиоуыэюя':
+                result += 1
+        list.append(result)
+    return len(list) == list.count(list[0])
 
-# print('Введите cтихотворение:')
-# str = input()
-# if rhythm(str):
-#     print('Парам пам-пам')
-# else:
-#     print('Пам парам')
+print('Введите cтихотворение:')
+str = input()
+if rhythm(str):
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
 
 
 # Задача 2: Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6), которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и столбца. 
@@ -29,11 +29,11 @@
 # Нумерация строк и столбцов идет с единицы (подумайте, почему не с нуля). 
 # Примечание: бинарной операцией называется любая операция, у которой ровно два аргумента, как, например, у операции умножения.
 
-# def print_operation_table(operation, num_rows=6, num_columns=6):
-#     for i in range(1, num_rows + 1):
-#          answer = []
-#          for j in range(1, num_columns + 1):
-#              answer.append(str(operation(i, j)))
-#          print(''.join(f'{e:<4}' for e in answer))
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    for i in range(1, num_rows + 1):
+         answer = []
+         for j in range(1, num_columns + 1):
+             answer.append(str(operation(i, j)))
+         print(''.join(f'{e:<4}' for e in answer))
  
-# print_operation_table(lambda x, y: x * y)
+print_operation_table(lambda x, y: x * y)
