@@ -1,57 +1,43 @@
 class Dragon:
     def __init__(self, height, danger, color):
-        self.height = height 
+        self.height = height
         self.danger = danger
         self.color = color
- 
+    
     def __lt__(self, other):
-        return self.height < other.height and self.danger < other.danger and self.color < other.color
- 
-    def __le__(self, other):
-        return self.height <= other.height and self.danger <= other.danger and self.color <= other.color
- 
-    def __gt__(self, other):
-        return self.height > other.height and self.danger > other.danger and self.color > other.color
- 
-    def __ge__(self, other):
-        return self.height >= other.height and self.danger >= other.danger and self.color >= other.color
- 
+        if self.height != other.height:
+            return self.height < other.height
+        if self.danger != other.danger:
+            return self.danger < other.danger
+        return self.color < other.color
+    
     def __eq__(self, other):
         return self.height == other.height and self.danger == other.danger and self.color == other.color
- 
-    def __ne__(self, other):
-        return self.height != other.height or self.danger != other.danger or self.color != other.color
- 
+    
+    def __le__(self, other):
+        return self == other or self < other
+    
     def __add__(self, other):
-        new_color = self.color if self.color < other.color else other.color
+        new_color = min(self.color, other.color)
         new_height = (self.height + other.height) // 2
-        new_danger = self.danger if self.danger > other.danger else other.danger
-        return Dragon(height=new_height, danger=new_danger, color=new_color)
- 
-    def __isub__(self, value):
-        self.height -= self.height // value
-        self.danger += self.danger % value
-        return self
- 
-    def __mod__(self, value):
-        new_height = self.height % value
-        new_danger = self.danger // value
-        new_color = self.color
-        return [Dragon(new_height, new_danger, new_color) for _ in range(value)]
- 
+        new_danger = max(self.danger, other.danger)
+        return Dragon(new_height, new_danger, new_color)
+    
+    def __sub__(self, number):
+        new_height = self.height - (self.height // number)
+        new_danger = self.danger + (self.danger % number)
+        return Dragon(new_height, new_danger, self.color)
+    
     def __call__(self, string):
         return string * self.danger
- 
-    def change_color(self, color):
-        if self.danger > 1:
-            self.danger -= 1
-            self.color = color
-        else:
-            self.color == color
- 
+    
+    def change_color(self, new_color):
+        self.color = new_color
+    
     def __str__(self):
-        return f'Dragon with height {self.height}, danger {self.danger} and color {self.color}'
- 
+        return f"Dragon with height {self.height}, danger {self.danger} and color {self.color}."
+    
     def __repr__(self):
-        return f'{self.height}, {self.danger}, {self.color}'
+        return f"Dragon({self.height}, {self.danger}, '{self.color}')"
+
 
